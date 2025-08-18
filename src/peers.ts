@@ -13,8 +13,8 @@ const getPkgSync = (root: string) => {
 
 export const getPeerDeps = (packages: string[]) => {
   return Object.values(packages)
-    .flatMap((dir) => {
-      const pkg = getPkgSync(path.join(dir, 'package.json'));
+    .flatMap((root) => {
+      const pkg = getPkgSync(root);
       return pkg.peerDependencies ? Object.keys(pkg.peerDependencies) : [];
     })
     .sort()
