@@ -1,9 +1,10 @@
 import type { MetroConfig } from '@react-native/metro-config';
 import { getBlockList } from '../block-list.js';
 import { getPeerDeps } from '../peers.js';
+import path from 'node:path';
 
 export const createMetroConfigs = (localPackages: Record<string, string>) => {
-  const packagePaths = Object.values(localPackages);
+  const packagePaths = Object.values(localPackages).map((p) => path.resolve(p));
   const peers = getPeerDeps(packagePaths);
 
   return {
