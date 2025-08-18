@@ -14,7 +14,7 @@ export const createMetroConfigs = (localPackages: Record<string, string>) => {
       extraNodeModules: new Proxy(localPackages, {
         get: (target, name: string) =>
           // redirects dependencies referenced from external modules to local node_modules
-          name in target ? target[name] : `node_modules/${name}`,
+          name in target ? target[name] : path.join(process.cwd(), `node_modules/${name}`),
       }),
     },
   } satisfies MetroConfig;
