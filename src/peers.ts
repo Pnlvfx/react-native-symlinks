@@ -8,6 +8,7 @@ interface PkgJson {
 
 const getPkgSync = (root: string) => {
   const buf = fs.readFileSync(path.join(root, 'package.json'));
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
   return JSON.parse(buf.toString()) as PkgJson;
 };
 
@@ -17,6 +18,6 @@ export const getPeerDeps = (packages: string[]) => {
       const pkg = getPkgSync(root);
       return pkg.peerDependencies ? Object.keys(pkg.peerDependencies) : [];
     })
-    .sort()
+    .toSorted()
     .filter((m, i, self) => self.lastIndexOf(m) === i);
 };

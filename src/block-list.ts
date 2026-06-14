@@ -5,7 +5,7 @@ export const getBlockList = (packages: string[], peers: string[]) => {
   return new RegExp(
     '(' +
       Object.values(packages)
-        .flatMap((dir) => peers.map((m) => `^${escape(path.join(dir, 'node_modules', m))}\\/.*$`))
+        .flatMap((dir) => peers.map((m) => String.raw`^${escape(path.join(dir, 'node_modules', m))}\/.*$`))
         .join('|') +
       ')$',
   );

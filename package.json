@@ -1,16 +1,17 @@
 {
   "name": "react-native-symlinks",
-  "description": "",
   "version": "1.0.0",
-  "author": {
-    "email": "simonegauli@gmail.com",
-    "name": "Simone Gauli"
-  },
+  "description": "Link local packages with rn metro",
   "repository": {
     "type": "git",
     "url": "https://github.com/Pnlvfx/react-native-symlinks.git"
   },
   "license": "MIT",
+  "author": {
+    "email": "simonegauli@gmail.com",
+    "name": "Simone Gauli"
+  },
+  "sideEffects": false,
   "type": "module",
   "exports": {
     "./*": {
@@ -19,33 +20,30 @@
       "require": "./dist/*/index.js"
     }
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "unused": "node tools/unused.ts",
-    "tsc": "tsc --noEmit",
-    "lint": "eslint",
     "build": "rimraf dist && eslint && tsc -p tsconfig.build.json",
-    "prepare": "husky",
+    "lint": "eslint",
     "prepack": "yarn build",
+    "prepare": "husky",
+    "tsc": "tsc --noEmit",
     "update": "yarn upgrade-interactive"
   },
-  "files": [
-    "dist",
-    "LICENSE",
-    "README.md"
-  ],
   "dependencies": {
     "escape-string-regexp": "^5.0.0"
   },
   "devDependencies": {
-    "@goatjs/node-eslint": "^1.19.0",
-    "@goatjs/rimraf": "^1.37.0",
-    "@goatjs/ts-unused-exports": "^1.37.0",
-    "@goatjs/typescript-config": "^1.37.0",
-    "@react-native/metro-config": "^0.82.1",
-    "@types/node": "^24.9.2",
-    "eslint": "^9.38.0",
-    "prettier": "^3.6.2",
-    "typescript": "^5.9.3"
+    "@eslint/config-helpers": "^0.6.0",
+    "@goatjs/node-eslint": "^2.31.0",
+    "@goatjs/rimraf": "^2.11.0",
+    "@goatjs/typescript-config": "^2.2.0",
+    "@react-native/metro-config": "^0.86.0",
+    "@types/node": "^25.9.3",
+    "eslint": "^10.5.0",
+    "prettier": "^3.8.4",
+    "typescript": "^6.0.3"
   },
-  "packageManager": "yarn@4.10.3+sha512.c38cafb5c7bb273f3926d04e55e1d8c9dfa7d9c3ea1f36a4868fa028b9e5f72298f0b7f401ad5eb921749eb012eb1c3bb74bf7503df3ee43fd600d14a018266f"
+  "packageManager": "yarn@4.16.0+sha512.5374c94eb4ef6aa8188fb112f20c1aa6569f248d676c5e576e1fd2a1a4d8d87a96df65d9dfe1c2a0252cbe38bda46cf18d955005b81b43cc7607a5c9d56fd2b6"
 }
