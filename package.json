@@ -35,6 +35,7 @@
   },
   "devDependencies": {
     "@eslint/config-helpers": "^0.6.0",
+    "@goatjs/dbz": "^2.48.0",
     "@goatjs/node-eslint": "^2.31.0",
     "@goatjs/rimraf": "^2.11.0",
     "@goatjs/typescript-config": "^2.2.0",
